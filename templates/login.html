@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+<body>
+    {% block body %}
+    <div class="display-3" style="text-align: center;">Login Here</div>
+    <form action="" method="POST" class="container" style="max-width: 600px;">
+        {{form.hidden_tag()}}
+        <div class="form-group">
+            {{form.email.label(class="form-control-label")}}
+            {{form.email(class="form-control form-contol-lg")}}
+        </div>
+        <div class="form-group">
+            {{form.password.label(class="form-control-label")}}
+            {{form.password(class="form-control form-contol-lg")}}
+        </div>
+        
+        
+        <div style="display: flex; justify-content:space-between; margin-top:10px"><span >
+            {{form.submit(class="btn btn-outline-success" )}}
+        </span>
+        <span>
+            <a href="/register">Don't Have an account</a>
+            
+        </span>
+        <span><a href="#">Forgot Password</a></span>
+    </div>
+    </form>
+    {% endblock %}
+</body>
