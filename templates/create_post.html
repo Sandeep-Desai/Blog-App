@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="display-3" style="text-align: center;">Add a New Post</div>
+<form action="" method="POST" class="container" style="max-width: 600px;">
+    {{form.hidden_tag()}}
+    
+    {% if form.title.errors %}
+    
+        
+            <div class="form-group">
+                <div>{{form.title.label(class="form-control-label")}}</div> 
+                {{form.title(class="form-control form-contol-lg is-invalid")}}
+            </div>
+            {% for error in form.title.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        
+        
+        </div>
+        {% else %}
+        <div class="form-group">
+            {{form.title.label(class="form-control-label")}}
+            {{form.title(class="form-control form-contol-lg")}}
+        </div>
+        {% endif %}
+
+
+        {% if form.content.errors %}
+    
+        
+            <div class="form-group">
+                <div>{{form.content.label(class="form-control-label")}}</div> 
+                {{form.content(class="form-control form-contol-lg is-invalid")}}
+            </div>
+            {% for error in form.content.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        
+        
+        </div>
+        {% else %}
+        <div class="form-group">
+            {{form.content.label(class="form-control-label")}}
+            
+            {{form.content(class="form-control form-contol-lg")}}
+        </div>
+        
+        {% endif %}
+        {{form.submit(class="btn btn-outline-secondary")}}
+</form>
+{% endblock %}
